@@ -1,0 +1,175 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-doctor-heading">Create or edit a Doctor</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!doctor.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_orgid">Orgid</label>
+                    <input type="number" class="form-control" name="orgid" id="field_orgid"
+                           formControlName="orgid"/>
+                    <div *ngIf="editForm.get('orgid').invalid && (editForm.get('orgid').dirty || editForm.get('orgid').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('orgid').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('orgid')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_docid">Docid</label>
+                    <input type="number" class="form-control" name="docid" id="field_docid"
+                           formControlName="docid"/>
+                    <div *ngIf="editForm.get('docid').invalid && (editForm.get('docid').dirty || editForm.get('docid').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('docid').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('docid')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_docname">Docname</label>
+                    <input type="text" class="form-control" name="docname" id="field_docname"
+                           formControlName="docname"/>
+                    <div *ngIf="editForm.get('docname').invalid && (editForm.get('docname').dirty || editForm.get('docname').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('docname').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_splid">Splid</label>
+                    <input type="number" class="form-control" name="splid" id="field_splid"
+                           formControlName="splid"/>
+                    <div *ngIf="editForm.get('splid').invalid && (editForm.get('splid').dirty || editForm.get('splid').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('splid').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('splid')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_licno">Licno</label>
+                    <input type="text" class="form-control" name="licno" id="field_licno"
+                           formControlName="licno"/>
+                    <div *ngIf="editForm.get('licno').invalid && (editForm.get('licno').dirty || editForm.get('licno').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('licno').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_natid">Natid</label>
+                    <input type="number" class="form-control" name="natid" id="field_natid"
+                           formControlName="natid"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_education">Education</label>
+                    <input type="number" class="form-control" name="education" id="field_education"
+                           formControlName="education"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_consultsrvid">Consultsrvid</label>
+                    <input type="number" class="form-control" name="consultsrvid" id="field_consultsrvid"
+                           formControlName="consultsrvid"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_followupsrvid">Followupsrvid</label>
+                    <input type="number" class="form-control" name="followupsrvid" id="field_followupsrvid"
+                           formControlName="followupsrvid"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_external">External</label>
+                    <input type="checkbox" class="form-control" name="external" id="field_external"
+                           formControlName="external"/>
+                    <div *ngIf="editForm.get('external').invalid && (editForm.get('external').dirty || editForm.get('external').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('external').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_defunct">Defunct</label>
+                    <input type="checkbox" class="form-control" name="defunct" id="field_defunct"
+                           formControlName="defunct"/>
+                    <div *ngIf="editForm.get('defunct').invalid && (editForm.get('defunct').dirty || editForm.get('defunct').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('defunct').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_creaton">Creaton</label>
+                    <div class="d-flex">
+                        <input id="field_creaton" type="datetime-local" class="form-control" name="creaton" formControlName="creaton" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('creaton').invalid && (editForm.get('creaton').dirty || editForm.get('creaton').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('creaton').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('creaton').errors?.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_creatby">Creatby</label>
+                    <input type="number" class="form-control" name="creatby" id="field_creatby"
+                           formControlName="creatby"/>
+                    <div *ngIf="editForm.get('creatby').invalid && (editForm.get('creatby').dirty || editForm.get('creatby').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('creatby').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('creatby')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_modifyon">Modifyon</label>
+                    <div class="d-flex">
+                        <input id="field_modifyon" type="datetime-local" class="form-control" name="modifyon" formControlName="modifyon" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_modifyby">Modifyby</label>
+                    <input type="number" class="form-control" name="modifyby" id="field_modifyby"
+                           formControlName="modifyby"/>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

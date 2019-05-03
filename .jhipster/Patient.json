@@ -1,0 +1,192 @@
+{
+    "name": "Patient",
+    "fields": [
+        {
+            "fieldName": "orgid",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "patid",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "fname",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "mname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lname",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dob",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "ageY",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "ageM",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "ageD",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "gender",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "add1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "add2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cityid",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "stateid",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "country",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "postalcode",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "natid",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mobile",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "mobile2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "married",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "occupationid",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "idtype",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "idnumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "defunct",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "creaton",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "creatby",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "modifyon",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "modifyby",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "generalMst",
+            "otherEntityRelationshipName": "patient",
+            "relationshipName": "cityid"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "generalMst",
+            "otherEntityRelationshipName": "patient",
+            "relationshipName": "stateid"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "generalMst",
+            "otherEntityRelationshipName": "patient",
+            "relationshipName": "natid"
+        }
+    ],
+    "changelogDate": "20190503145952",
+    "entityTableName": "patient",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
