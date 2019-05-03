@@ -1,0 +1,77 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="generalMst">
+            <h2><span>General Mst</span> {{generalMst.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Orgid</span></dt>
+                <dd>
+                    <span>{{generalMst.orgid}}</span>
+                </dd>
+                <dt><span>Genid</span></dt>
+                <dd>
+                    <span>{{generalMst.genid}}</span>
+                </dd>
+                <dt><span>Type</span></dt>
+                <dd>
+                    <span>{{generalMst.type}}</span>
+                </dd>
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{generalMst.name}}</span>
+                </dd>
+                <dt><span>Defunct</span></dt>
+                <dd>
+                    <span>{{generalMst.defunct}}</span>
+                </dd>
+                <dt><span>Creaton</span></dt>
+                <dd>
+                    <span>{{generalMst.creaton}}</span>
+                </dd>
+                <dt><span>Creatby</span></dt>
+                <dd>
+                    <span>{{generalMst.creatby}}</span>
+                </dd>
+                <dt><span>Modifyon</span></dt>
+                <dd>
+                    <span>{{generalMst.modifyon}}</span>
+                </dd>
+                <dt><span>Modifyby</span></dt>
+                <dd>
+                    <span>{{generalMst.modifyby}}</span>
+                </dd>
+                <dt><span>Patient</span></dt>
+                <dd>
+                    <div *ngIf="generalMst.patient">
+                        <a [routerLink]="['/patient', generalMst.patient?.id, 'view']">{{generalMst.patient?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Patient</span></dt>
+                <dd>
+                    <div *ngIf="generalMst.patient">
+                        <a [routerLink]="['/patient', generalMst.patient?.id, 'view']">{{generalMst.patient?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Patient</span></dt>
+                <dd>
+                    <div *ngIf="generalMst.patient">
+                        <a [routerLink]="['/patient', generalMst.patient?.id, 'view']">{{generalMst.patient?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/general-mst', generalMst.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

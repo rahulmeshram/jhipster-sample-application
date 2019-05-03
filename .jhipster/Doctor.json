@@ -1,0 +1,109 @@
+{
+    "name": "Doctor",
+    "fields": [
+        {
+            "fieldName": "orgid",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "docid",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "docname",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "splid",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "licno",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "natid",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "education",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "consultsrvid",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "followupsrvid",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "external",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "defunct",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "creaton",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "creatby",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "modifyon",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "modifyby",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "specility",
+            "otherEntityRelationshipName": "doctor",
+            "relationshipName": "splid"
+        }
+    ],
+    "changelogDate": "20190503145954",
+    "entityTableName": "doctor",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,74 @@
+<div>
+    <h2 id="page-heading">
+        <span>Specilities</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-specility" [routerLink]="['/specility/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Specility
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="specilities">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Orgid</span></th>
+            <th><span>Splid</span></th>
+            <th><span>Splname</span></th>
+            <th><span>Defunct</span></th>
+            <th><span>Creaton</span></th>
+            <th><span>Creatby</span></th>
+            <th><span>Modifyon</span></th>
+            <th><span>Modifyby</span></th>
+            <th><span>Doctor</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let specility of specilities ;trackBy: trackId">
+                <td><a [routerLink]="['/specility', specility.id, 'view' ]">{{specility.id}}</a></td>
+                <td>{{specility.orgid}}</td>
+                <td>{{specility.splid}}</td>
+                <td>{{specility.splname}}</td>
+                <td>{{specility.defunct}}</td>
+                <td>{{specility.creaton | date:'medium'}}</td>
+                <td>{{specility.creatby}}</td>
+                <td>{{specility.modifyon | date:'medium'}}</td>
+                <td>{{specility.modifyby}}</td>
+                <td>
+                    <div *ngIf="specility.doctor">
+                        <a [routerLink]="['../doctor', specility.doctor?.id, 'view' ]" >{{specility.doctor?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/specility', specility.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/specility', specility.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'specility', { outlets: { popup: specility.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
