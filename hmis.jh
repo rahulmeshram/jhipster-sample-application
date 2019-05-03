@@ -1,0 +1,78 @@
+entity GeneralMst {
+ orgid Long required,
+ genid String required,
+ type String required,
+ name String required,
+ defunct Boolean required,
+ creaton Instant required,
+ creatby Long required,
+ modifyon Instant,
+ modifyby Long 
+}
+
+entity Patient {
+ orgid Long required,
+ patid String required,
+ fname String required,
+ mname String,
+ lname String required,
+ dob Instant,
+ ageY Integer,
+ ageM Integer,
+ ageD Integer,
+ gender String required,
+ add1 String,
+ add2 String,
+ cityid String required,
+ stateid String required,
+ country String required,
+ postalcode String required,
+ natid Long required,
+ email String,
+ mobile String required,
+ mobile2 String,
+ married String,
+ occupationid Long,
+ idtype String,
+ idnumber String,
+ defunct Boolean required,
+ creaton Instant required,
+ creatby Long required,
+ modifyon Instant,
+ modifyby Long
+}
+
+entity Specility {
+ orgid Long required,
+ splid Long required,
+ splname String required,
+ defunct Boolean required,
+ creaton Instant required,
+ creatby Long required,
+ modifyon Instant,
+ modifyby Long
+}
+entity Doctor {
+ orgid Long required,
+ docid Long required,
+ docname String required,
+ splid Long required,
+ licno String required,
+ natid Long,
+ education Long,
+ consultsrvid Long,
+ followupsrvid Long,
+ external Boolean required,
+ defunct Boolean required,
+ creaton Instant required,
+ creatby Long required,
+ modifyon Instant,
+ modifyby Long
+}
+
+relationship OneToMany {
+	Doctor{splid} to Specility,
+    Patient{cityid} to GeneralMst ,
+    Patient{stateid} to GeneralMst,
+    Patient{natid} to GeneralMst
+}
