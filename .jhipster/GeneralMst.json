@@ -1,0 +1,91 @@
+{
+    "name": "GeneralMst",
+    "fields": [
+        {
+            "fieldName": "orgid",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "genid",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "defunct",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "creaton",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "creatby",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "modifyon",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "modifyby",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "patient",
+            "otherEntityRelationshipName": "cityid",
+            "relationshipName": "genid"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "patient",
+            "otherEntityRelationshipName": "stateid",
+            "relationshipName": "genid"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "patient",
+            "otherEntityRelationshipName": "natid",
+            "relationshipName": "genid"
+        }
+    ],
+    "changelogDate": "20190503145123",
+    "entityTableName": "general_mst",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

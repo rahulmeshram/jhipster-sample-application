@@ -1,0 +1,88 @@
+<div>
+    <h2 id="page-heading">
+        <span>Doctors</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-doctor" [routerLink]="['/doctor/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Doctor
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="doctors">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Orgid</span></th>
+            <th><span>Docid</span></th>
+            <th><span>Docname</span></th>
+            <th><span>Splid</span></th>
+            <th><span>Licno</span></th>
+            <th><span>Natid</span></th>
+            <th><span>Education</span></th>
+            <th><span>Consultsrvid</span></th>
+            <th><span>Followupsrvid</span></th>
+            <th><span>External</span></th>
+            <th><span>Defunct</span></th>
+            <th><span>Creaton</span></th>
+            <th><span>Creatby</span></th>
+            <th><span>Modifyon</span></th>
+            <th><span>Modifyby</span></th>
+            <th><span>Docid</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let doctor of doctors ;trackBy: trackId">
+                <td><a [routerLink]="['/doctor', doctor.id, 'view' ]">{{doctor.id}}</a></td>
+                <td>{{doctor.orgid}}</td>
+                <td>{{doctor.docid}}</td>
+                <td>{{doctor.docname}}</td>
+                <td>{{doctor.splid}}</td>
+                <td>{{doctor.licno}}</td>
+                <td>{{doctor.natid}}</td>
+                <td>{{doctor.education}}</td>
+                <td>{{doctor.consultsrvid}}</td>
+                <td>{{doctor.followupsrvid}}</td>
+                <td>{{doctor.external}}</td>
+                <td>{{doctor.defunct}}</td>
+                <td>{{doctor.creaton | date:'medium'}}</td>
+                <td>{{doctor.creatby}}</td>
+                <td>{{doctor.modifyon | date:'medium'}}</td>
+                <td>{{doctor.modifyby}}</td>
+                <td>
+                    <div *ngIf="doctor.docid">
+                        <a [routerLink]="['../specility', doctor.docid?.id, 'view' ]" >{{doctor.docid?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/doctor', doctor.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/doctor', doctor.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'doctor', { outlets: { popup: doctor.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,157 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="patient">
+            <h2><span>Patient</span> {{patient.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Orgid</span></dt>
+                <dd>
+                    <span>{{patient.orgid}}</span>
+                </dd>
+                <dt><span>Patid</span></dt>
+                <dd>
+                    <span>{{patient.patid}}</span>
+                </dd>
+                <dt><span>Fname</span></dt>
+                <dd>
+                    <span>{{patient.fname}}</span>
+                </dd>
+                <dt><span>Mname</span></dt>
+                <dd>
+                    <span>{{patient.mname}}</span>
+                </dd>
+                <dt><span>Lname</span></dt>
+                <dd>
+                    <span>{{patient.lname}}</span>
+                </dd>
+                <dt><span>Dob</span></dt>
+                <dd>
+                    <span>{{patient.dob}}</span>
+                </dd>
+                <dt><span>Age Y</span></dt>
+                <dd>
+                    <span>{{patient.ageY}}</span>
+                </dd>
+                <dt><span>Age M</span></dt>
+                <dd>
+                    <span>{{patient.ageM}}</span>
+                </dd>
+                <dt><span>Age D</span></dt>
+                <dd>
+                    <span>{{patient.ageD}}</span>
+                </dd>
+                <dt><span>Gender</span></dt>
+                <dd>
+                    <span>{{patient.gender}}</span>
+                </dd>
+                <dt><span>Add 1</span></dt>
+                <dd>
+                    <span>{{patient.add1}}</span>
+                </dd>
+                <dt><span>Add 2</span></dt>
+                <dd>
+                    <span>{{patient.add2}}</span>
+                </dd>
+                <dt><span>Cityid</span></dt>
+                <dd>
+                    <span>{{patient.cityid}}</span>
+                </dd>
+                <dt><span>Stateid</span></dt>
+                <dd>
+                    <span>{{patient.stateid}}</span>
+                </dd>
+                <dt><span>Country</span></dt>
+                <dd>
+                    <span>{{patient.country}}</span>
+                </dd>
+                <dt><span>Postalcode</span></dt>
+                <dd>
+                    <span>{{patient.postalcode}}</span>
+                </dd>
+                <dt><span>Natid</span></dt>
+                <dd>
+                    <span>{{patient.natid}}</span>
+                </dd>
+                <dt><span>Email</span></dt>
+                <dd>
+                    <span>{{patient.email}}</span>
+                </dd>
+                <dt><span>Mobile</span></dt>
+                <dd>
+                    <span>{{patient.mobile}}</span>
+                </dd>
+                <dt><span>Mobile 2</span></dt>
+                <dd>
+                    <span>{{patient.mobile2}}</span>
+                </dd>
+                <dt><span>Married</span></dt>
+                <dd>
+                    <span>{{patient.married}}</span>
+                </dd>
+                <dt><span>Occupationid</span></dt>
+                <dd>
+                    <span>{{patient.occupationid}}</span>
+                </dd>
+                <dt><span>Idtype</span></dt>
+                <dd>
+                    <span>{{patient.idtype}}</span>
+                </dd>
+                <dt><span>Idnumber</span></dt>
+                <dd>
+                    <span>{{patient.idnumber}}</span>
+                </dd>
+                <dt><span>Defunct</span></dt>
+                <dd>
+                    <span>{{patient.defunct}}</span>
+                </dd>
+                <dt><span>Creaton</span></dt>
+                <dd>
+                    <span>{{patient.creaton}}</span>
+                </dd>
+                <dt><span>Creatby</span></dt>
+                <dd>
+                    <span>{{patient.creatby}}</span>
+                </dd>
+                <dt><span>Modifyon</span></dt>
+                <dd>
+                    <span>{{patient.modifyon}}</span>
+                </dd>
+                <dt><span>Modifyby</span></dt>
+                <dd>
+                    <span>{{patient.modifyby}}</span>
+                </dd>
+                <dt><span>Cityid</span></dt>
+                <dd>
+                    <div *ngIf="patient.cityid">
+                        <a [routerLink]="['/general-mst', patient.cityid?.id, 'view']">{{patient.cityid?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Stateid</span></dt>
+                <dd>
+                    <div *ngIf="patient.stateid">
+                        <a [routerLink]="['/general-mst', patient.stateid?.id, 'view']">{{patient.stateid?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Natid</span></dt>
+                <dd>
+                    <div *ngIf="patient.natid">
+                        <a [routerLink]="['/general-mst', patient.natid?.id, 'view']">{{patient.natid?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/patient', patient.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

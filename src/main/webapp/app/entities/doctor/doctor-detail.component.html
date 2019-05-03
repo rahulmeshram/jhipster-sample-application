@@ -1,0 +1,89 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="doctor">
+            <h2><span>Doctor</span> {{doctor.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Orgid</span></dt>
+                <dd>
+                    <span>{{doctor.orgid}}</span>
+                </dd>
+                <dt><span>Docid</span></dt>
+                <dd>
+                    <span>{{doctor.docid}}</span>
+                </dd>
+                <dt><span>Docname</span></dt>
+                <dd>
+                    <span>{{doctor.docname}}</span>
+                </dd>
+                <dt><span>Splid</span></dt>
+                <dd>
+                    <span>{{doctor.splid}}</span>
+                </dd>
+                <dt><span>Licno</span></dt>
+                <dd>
+                    <span>{{doctor.licno}}</span>
+                </dd>
+                <dt><span>Natid</span></dt>
+                <dd>
+                    <span>{{doctor.natid}}</span>
+                </dd>
+                <dt><span>Education</span></dt>
+                <dd>
+                    <span>{{doctor.education}}</span>
+                </dd>
+                <dt><span>Consultsrvid</span></dt>
+                <dd>
+                    <span>{{doctor.consultsrvid}}</span>
+                </dd>
+                <dt><span>Followupsrvid</span></dt>
+                <dd>
+                    <span>{{doctor.followupsrvid}}</span>
+                </dd>
+                <dt><span>External</span></dt>
+                <dd>
+                    <span>{{doctor.external}}</span>
+                </dd>
+                <dt><span>Defunct</span></dt>
+                <dd>
+                    <span>{{doctor.defunct}}</span>
+                </dd>
+                <dt><span>Creaton</span></dt>
+                <dd>
+                    <span>{{doctor.creaton}}</span>
+                </dd>
+                <dt><span>Creatby</span></dt>
+                <dd>
+                    <span>{{doctor.creatby}}</span>
+                </dd>
+                <dt><span>Modifyon</span></dt>
+                <dd>
+                    <span>{{doctor.modifyon}}</span>
+                </dd>
+                <dt><span>Modifyby</span></dt>
+                <dd>
+                    <span>{{doctor.modifyby}}</span>
+                </dd>
+                <dt><span>Docid</span></dt>
+                <dd>
+                    <div *ngIf="doctor.docid">
+                        <a [routerLink]="['/specility', doctor.docid?.id, 'view']">{{doctor.docid?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/doctor', doctor.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
