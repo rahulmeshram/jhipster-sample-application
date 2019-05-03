@@ -1,0 +1,128 @@
+<div>
+    <h2 id="page-heading">
+        <span>Patients</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-patient" [routerLink]="['/patient/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Patient
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="patients">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Orgid</span></th>
+            <th><span>Patid</span></th>
+            <th><span>Fname</span></th>
+            <th><span>Mname</span></th>
+            <th><span>Lname</span></th>
+            <th><span>Dob</span></th>
+            <th><span>Age Y</span></th>
+            <th><span>Age M</span></th>
+            <th><span>Age D</span></th>
+            <th><span>Gender</span></th>
+            <th><span>Add 1</span></th>
+            <th><span>Add 2</span></th>
+            <th><span>Cityid</span></th>
+            <th><span>Stateid</span></th>
+            <th><span>Country</span></th>
+            <th><span>Postalcode</span></th>
+            <th><span>Natid</span></th>
+            <th><span>Email</span></th>
+            <th><span>Mobile</span></th>
+            <th><span>Mobile 2</span></th>
+            <th><span>Married</span></th>
+            <th><span>Occupationid</span></th>
+            <th><span>Idtype</span></th>
+            <th><span>Idnumber</span></th>
+            <th><span>Defunct</span></th>
+            <th><span>Creaton</span></th>
+            <th><span>Creatby</span></th>
+            <th><span>Modifyon</span></th>
+            <th><span>Modifyby</span></th>
+            <th><span>Cityid</span></th>
+            <th><span>Stateid</span></th>
+            <th><span>Natid</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let patient of patients ;trackBy: trackId">
+                <td><a [routerLink]="['/patient', patient.id, 'view' ]">{{patient.id}}</a></td>
+                <td>{{patient.orgid}}</td>
+                <td>{{patient.patid}}</td>
+                <td>{{patient.fname}}</td>
+                <td>{{patient.mname}}</td>
+                <td>{{patient.lname}}</td>
+                <td>{{patient.dob | date:'medium'}}</td>
+                <td>{{patient.ageY}}</td>
+                <td>{{patient.ageM}}</td>
+                <td>{{patient.ageD}}</td>
+                <td>{{patient.gender}}</td>
+                <td>{{patient.add1}}</td>
+                <td>{{patient.add2}}</td>
+                <td>{{patient.cityid}}</td>
+                <td>{{patient.stateid}}</td>
+                <td>{{patient.country}}</td>
+                <td>{{patient.postalcode}}</td>
+                <td>{{patient.natid}}</td>
+                <td>{{patient.email}}</td>
+                <td>{{patient.mobile}}</td>
+                <td>{{patient.mobile2}}</td>
+                <td>{{patient.married}}</td>
+                <td>{{patient.occupationid}}</td>
+                <td>{{patient.idtype}}</td>
+                <td>{{patient.idnumber}}</td>
+                <td>{{patient.defunct}}</td>
+                <td>{{patient.creaton | date:'medium'}}</td>
+                <td>{{patient.creatby}}</td>
+                <td>{{patient.modifyon | date:'medium'}}</td>
+                <td>{{patient.modifyby}}</td>
+                <td>
+                    <div *ngIf="patient.cityid">
+                        <a [routerLink]="['../general-mst', patient.cityid?.id, 'view' ]" >{{patient.cityid?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="patient.stateid">
+                        <a [routerLink]="['../general-mst', patient.stateid?.id, 'view' ]" >{{patient.stateid?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="patient.natid">
+                        <a [routerLink]="['../general-mst', patient.natid?.id, 'view' ]" >{{patient.natid?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/patient', patient.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/patient', patient.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'patient', { outlets: { popup: patient.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="specility">
+            <h2><span>Specility</span> {{specility.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Orgid</span></dt>
+                <dd>
+                    <span>{{specility.orgid}}</span>
+                </dd>
+                <dt><span>Splid</span></dt>
+                <dd>
+                    <span>{{specility.splid}}</span>
+                </dd>
+                <dt><span>Splname</span></dt>
+                <dd>
+                    <span>{{specility.splname}}</span>
+                </dd>
+                <dt><span>Defunct</span></dt>
+                <dd>
+                    <span>{{specility.defunct}}</span>
+                </dd>
+                <dt><span>Creaton</span></dt>
+                <dd>
+                    <span>{{specility.creaton}}</span>
+                </dd>
+                <dt><span>Creatby</span></dt>
+                <dd>
+                    <span>{{specility.creatby}}</span>
+                </dd>
+                <dt><span>Modifyon</span></dt>
+                <dd>
+                    <span>{{specility.modifyon}}</span>
+                </dd>
+                <dt><span>Modifyby</span></dt>
+                <dd>
+                    <span>{{specility.modifyby}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/specility', specility.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
